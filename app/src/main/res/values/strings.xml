@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SmartGlass</string>
+    <string name="Przycisk">Przycisk</string>
+    <string name="przycisk">Przycisk</string>
 </resources>
