@@ -11,20 +11,53 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/xvalue"
+        android:id="@+id/xavalue"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/yvalue"
+        android:id="@+id/yavalue"
         android:layout_marginTop="30sp"
-        android:layout_below="@+id/xvalue"/>
+        android:layout_below="@+id/xavalue"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/gyrovalue"
+        android:id="@+id/zavalue"
         android:layout_marginTop="30sp"
-        android:layout_below="@+id/yvalue"/>
+        android:layout_below="@+id/yavalue"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/xgvalue"
+        android:layout_marginTop="30sp"
+        android:layout_below="@+id/zavalue"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ygvalue"
+        android:layout_marginTop="30sp"
+        android:layout_below="@+id/xgvalue"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/zgvalue"
+        android:layout_marginTop="30sp"
+        android:layout_below="@+id/ygvalue"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wynvalue"
+        android:layout_marginTop="30sp"
+        android:layout_below="@+id/zgvalue"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wyn_value"
+        android:layout_marginTop="30sp"
+        android:layout_below="@+id/wynvalue"/>
 
 
 

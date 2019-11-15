@@ -18,16 +18,22 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private SensorManager sensorManager;
     Sensor accelerometer;
     Sensor gyroscope;
-    TextView xvalue, yvalue, gyrovalue;
+    TextView xavalue, yavalue,zavalue, xgvalue,ygvalue,zgvalue, wynvalue, wyn_value;
+    double xa, ya,za,xg,yg,zg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        xvalue = (TextView) findViewById(R.id.xvalue);
-        yvalue = (TextView) findViewById(R.id.yvalue);
-        gyrovalue = (TextView) findViewById(R.id.gyrovalue);
+        xavalue = (TextView) findViewById(R.id.xavalue);
+        yavalue = (TextView) findViewById(R.id.yavalue);
+        zavalue = (TextView) findViewById(R.id.zavalue);
+        xgvalue = (TextView) findViewById(R.id.xgvalue);
+        ygvalue = (TextView) findViewById(R.id.ygvalue);
+        zgvalue = (TextView) findViewById(R.id.zgvalue);
+        wynvalue = (TextView) findViewById(R.id.wynvalue);
+        wyn_value = (TextView) findViewById(R.id.wyn_value);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
@@ -36,14 +42,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         if (gyroscope != null) {
             sensorManager.registerListener(MainActivity.this, gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
-        } else xvalue.setText("Not connected");
+        } else xavalue.setText("Not connected");
 
-        //if (accelerometer != null) {
+        if (accelerometer != null) {
             sensorManager.registerListener(MainActivity.this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-       // } else xvalue.setText("Not connected");
-
-
-
+        } else xavalue.setText("Not connected");
     }
 
     @Override
@@ -51,28 +54,37 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
-
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         Sensor sensor = sensorEvent.sensor;
         if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            xvalue.setText("X: " + sensorEvent.values[0]);
-            yvalue.setText("Y: " + sensorEvent.values[1]);
-            Log.d(TAG,"X :"+sensorEvent.values[0]);
-            Log.d(TAG," Y :"+sensorEvent.values[1]);
-
+            xa= sensorEvent.values[0];
+            ya= sensorEvent.values[1];
+            za= sensorEvent.values[2];
         }
-        /*if(sensorEvent.values[0]>0 && sensorEvent.values[2]>0) Log.d(TAG,"Góra, Prawo");
-        else if (sensorEvent.values[0]>0 && sensorEvent.values[2]<0) Log.d(TAG,"Góra, Lewo");
-        else if (sensorEvent.values[0]<0 && sensorEvent.values[2]>0) Log.d(TAG,"Dół, Prawo");
-        else Log.d(TAG,"Dół,Lewo")*/
-
-
-        else if(sensor.getType()==Sensor.TYPE_GYROSCOPE)
-        {
-            gyrovalue.setText("Gyro: " + sensorEvent.values[1]);
-            Log.d(TAG," Gyro :"+sensorEvent.values[1]);
+        else if(sensor.getType()==Sensor.TYPE_GYROSCOPE) {
+            xg= sensorEvent.values[0];
+            yg= sensorEvent.values[1];
+            zg= sensorEvent.values[2];
         }
+        /*xavalue.setText("X: "+xa);
+        yavalue.setText("Y: "+ya);
+        zavalue.setText("Z: "+za);
+        xgvalue.setText("Xg: "+xg);
+        ygvalue.setText("Yg: "+yg);
+        zgvalue.setText("Zg: "+zg);*/
+
+        if(yg<0 && zg>0 && xg>0) wynvalue.setText("Ruch: Góra");
+        else if(yg>0 &&zg <0 && xg <0)wynvalue.setText("Ruch: Dół");
+        else if(yg<0 &&zg <0 && xg <0)wynvalue.setText("Ruch: Prawo");
+        else if(yg>0 &&zg >0 && xg <0)wynvalue.setText("Ruch: Lewo");
+
+        if(ya>9 && za<2 && za>-2 && xa<2 && xa>-2) wyn_value.setText("Położenie: Normalne");
+        else if(za<-2 && xa<2 && xa>-2) wyn_value.setText("Położenie: Góra");
+        else if(za>2 && xa<2 && xa>-2) wyn_value.setText("Położenie: Dół");
+        else if(za<-2 && xa>2) wyn_value.setText("Położenie: Pochylony w Lewo");
+        else if(za<-2 && xa<-2) wyn_value.setText("Położenie: Pochylony w Prawo");
+
     }
 }
 
