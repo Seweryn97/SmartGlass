@@ -19,14 +19,14 @@ public class AnalyseData {
         this.movement = mov;
     }
 
-    //Pobranie informacjii o używanej wersji androida
+    //Getting Android Version
     public String getAndroidVersion() {
         String release = Build.VERSION.RELEASE;
         int sdkVersion = Build.VERSION.SDK_INT;
         return  sdkVersion + " (" + release +")";
     }
 
-    //Wyzanczenie mody w kolekcjach
+    //Appoitment trend in collection
     public  int [] get_data() {
         int [] tab= new int[2];
 
@@ -66,7 +66,7 @@ public class AnalyseData {
         return tab;
     }
 
-    //Analiza danych
+    //Data analyzing
     public String check_activity(){
         String data;
         if(get_data()[0]==1 && get_data()[1]==1){

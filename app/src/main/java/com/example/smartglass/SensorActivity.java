@@ -58,7 +58,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         final AnalyseData analyseData = new AnalyseData(position,movement);
         final SendJson sendJson = new SendJson(position,movement);
 
-        //Obsługa przycisku (tworzenie i wysyłanie jsona na serwer)
+        //Create JSON Button
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +72,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
             }
         });
 
-        //Obsługa sensorów
+        //Sensors
         SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -102,7 +102,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                 yAccValue,zAccValue,xGyroValue,yGyroValue,zGyroValue,gyroValue,accValue,position
                 ,movement);
 
-        //Zaokrąglenie wartośći z sensorów do dwóch miejs po przecinku
+        //Rounding values (two places)
         if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 
             xAcc = Math.round((double) sensorEvent.values[0] * 100.0) / 100.0;
@@ -115,10 +115,10 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
             zGyro = Math.round((double) sensorEvent.values[2] * 100.0) / 100.0;
 
         }
-        //Wyświetlanie wartości z sensorów
+        //Displaying valies from sensors
         dispalyInfo.displaySensorsValues();
 
-        //Wyświetlanie konkretnego położenia i przemieszczenia
+        //Displaying Layout
         dispalyInfo.changeOnParticularValues();
 
     }
