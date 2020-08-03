@@ -2,7 +2,6 @@ package com.example.smartglass;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.Sensor;
@@ -14,9 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import org.json.JSONException;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,8 +35,6 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     @SuppressLint("SimpleDateFormat")
     private DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
     private String strdate = dateFormat.format(currenttime);
-
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -83,11 +78,13 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         if (gyroscope != null) {
-            sensorManager.registerListener(SensorActivity.this, gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(SensorActivity.this, gyroscope,
+                    SensorManager.SENSOR_DELAY_NORMAL);
         } else xAccValue.setText("Not connected");
 
         if (accelerometer != null) {
-            sensorManager.registerListener(SensorActivity.this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(SensorActivity.this, accelerometer,
+                    SensorManager.SENSOR_DELAY_NORMAL);
         } else xAccValue.setText("Not connected");
     }
 
