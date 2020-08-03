@@ -5,6 +5,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * Send Json is responsible for create json format with data from sensor
+ */
+
 public class SendJson  {
 
     private JSONObject jsonParam = new JSONObject();

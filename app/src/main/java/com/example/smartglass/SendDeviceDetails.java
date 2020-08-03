@@ -9,6 +9,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * SendDeviceDetails is reponsible for send data to server
+ */
+
 class SendDeviceDetails extends AsyncTask<String, Void, String> {
 
     @Override

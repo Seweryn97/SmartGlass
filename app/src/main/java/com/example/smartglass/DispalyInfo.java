@@ -4,6 +4,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * DisplayInfo is responsible for diplaying informations from gyroscope and accelerometer on app GUI
+ * @params xAcc, yAcc, zAcc ... sets values from accelerometer and gyroscope
+ * @params xAccValue, yAccValue - TextViews from GUI
+ * @params position and movements are arraylists which contain values from accelerometer and gyroscope
+ */
+
 public class DispalyInfo {
 
     private double xAcc, yAcc, zAcc, xGyro, yGyro, zGyro;
@@ -35,9 +42,9 @@ public class DispalyInfo {
         this.position = position;
         this.movement = movement;
 
-        
     }
 
+    // Displaying informations from acceleroemter and gyroscope
     public void displaySensorsValues (){
         xAccValue.setText("X: " + xAcc);
         yAccValue.setText("Y: " + yAcc);
@@ -47,6 +54,8 @@ public class DispalyInfo {
         zGyroValue.setText("Zg: " + zGyro);
         
     }
+
+    //Adding informations to arraylists
 
     public void changeOnParticularValues(){
 

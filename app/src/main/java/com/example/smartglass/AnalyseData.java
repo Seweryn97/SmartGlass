@@ -19,8 +19,6 @@ public class AnalyseData {
         this.movement = mov;
     }
 
-
-
     //Pobranie informacjii o używanej wersji androida
     public String getAndroidVersion() {
         String release = Build.VERSION.RELEASE;

@@ -11,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ *FillDataActivity is responsible for filling data in first activity
+ */
+
 public class FillDataActivity extends AppCompatActivity{
 
     public static EditText editText, editText2,editText3;
